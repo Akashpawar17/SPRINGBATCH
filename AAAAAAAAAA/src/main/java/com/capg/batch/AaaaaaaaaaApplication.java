@@ -23,22 +23,21 @@ public class AaaaaaaaaaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AaaaaaaaaaApplication.class, args);
 	}
-	
+
 	@Autowired
 	private JobLauncher jobLauncher;
-	
-	  @Autowired private Job job;
-	 
-	
-	
-	
+
+	@Autowired
+	private Job job;
+
 	@Scheduled(fixedRate = 5000)
-	public void execute1() throws JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException, JobParametersInvalidException {
-		
-		JobParameters paramater=new JobParametersBuilder().addString("job1", String.valueOf(System.currentTimeMillis())).toJobParameters();
-	
-	
-	jobLauncher.run(job, paramater);
+	public void execute1() throws JobExecutionAlreadyRunningException, JobRestartException,
+			JobInstanceAlreadyCompleteException, JobParametersInvalidException {
+
+		JobParameters paramater = new JobParametersBuilder()
+				.addString("job1", String.valueOf(System.currentTimeMillis())).toJobParameters();
+
+		jobLauncher.run(job, paramater);
 	}
-	
+
 }

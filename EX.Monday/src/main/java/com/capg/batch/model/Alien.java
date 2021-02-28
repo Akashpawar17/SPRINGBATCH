@@ -1,8 +1,8 @@
 package com.capg.batch.model;
 
 
-
 public class Alien {
+
 	private int aid;
 	private String aname;
 	public int getAid() {
